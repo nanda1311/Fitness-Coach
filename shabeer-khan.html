@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shabeer Khan | Personal Fitness Coach</title>
+<meta name="description" content="Personal fitness coaching, nutrition guidance and strength training with Shabeer Khan. Build strength, build discipline, build your best self.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080808;--ch:#151515;--card:#202020;--tx:#fff;--mut:#A6A6A6;--red:#E32636;--bd:#333;--h:'Anton','Oswald','Impact',sans-serif;--b:'Inter','DM Sans',system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;background:var(--bg)}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.65 var(--b);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+h1,h2,h3{font-family:var(--h);font-weight:400;line-height:1.02;text-transform:uppercase;letter-spacing:.01em}
+h2{font-size:clamp(2.2rem,5.5vw,4.2rem)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+section{padding:110px 0}
+.lbl{color:var(--red);font-weight:600;font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px;display:block}
+.mut{color:var(--mut)}
+.btn{display:inline-block;font:600 .85rem var(--b);letter-spacing:.14em;text-transform:uppercase;padding:16px 30px;border:1px solid var(--red);background:var(--red);color:#fff;cursor:pointer;transition:background .25s,color .25s,border-color .25s;border-radius:2px}
+.btn:hover{background:#fff;color:var(--bg);border-color:#fff}
+.btn.ghost{background:transparent;border-color:#fff}
+.btn.ghost:hover{background:#fff;color:var(--bg)}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.s{background:rgba(8,8,8,.96);border-color:var(--bd)}
+.nb{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font:400 1.5rem var(--h);letter-spacing:.06em}
+.logo img{display:block;width:190px;max-height:67px;object-fit:contain}
+.links{display:flex;gap:26px;align-items:center}
+.links a{font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);padding:6px 0;border-bottom:2px solid transparent;transition:color .2s}
+.links a:hover,.links a.on{color:#fff}
+.links a.on{border-color:var(--red)}
+.links .btn{padding:11px 20px;color:#fff;border-bottom:1px solid var(--red)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
+.burger i{position:absolute;left:10px;right:10px;height:2px;background:#fff;transition:.25s}
+.burger i:nth-child(1){top:15px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:27px}
+.burger.o i:nth-child(1){top:21px;transform:rotate(45deg)}.burger.o i:nth-child(2){opacity:0}.burger.o i:nth-child(3){top:21px;transform:rotate(-45deg)}
+/* placeholders */
+.ph{position:relative;background:repeating-linear-gradient(135deg,#1a1a1a 0 14px,#202020 14px 28px);border:1px dashed #444;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;color:var(--mut);font-size:.8rem;padding:20px}
+.ph b{display:block;color:#fff;font-weight:600;margin-bottom:4px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph.has{border:0;padding:0}.ph.has span{display:none}
+.ph input{display:none}
+/* hero */
+#home{min-height:100vh;padding:110px 0 70px;background:radial-gradient(ellipse at 78% 45%,rgba(227,38,54,.16),transparent 55%),var(--bg);display:flex;align-items:center;position:relative}
+.hg{display:grid;grid-template-columns:5fr 6fr;gap:30px;align-items:center}
+#home h1{font-size:clamp(2.6rem,5.6vw,5rem);margin:6px 0 24px}
+#home h1 em{font-style:normal;color:var(--red)}
+#home p{max-width:440px;color:var(--mut);margin-bottom:34px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-ph{aspect-ratio:4/5;max-height:82vh;width:100%;margin-left:auto}
+.scroll{position:absolute;bottom:22px;left:50%;width:1px;height:46px;background:linear-gradient(var(--mut),transparent)}
+/* about */
+#about{background:var(--ch)}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.ag .ph{aspect-ratio:4/5}
+#about h2{margin-bottom:26px}
+#about p{color:var(--mut);margin-bottom:18px;max-width:520px}
+.hl{margin-top:34px;border-top:1px solid var(--bd)}
+.hl div{padding:16px 0;border-bottom:1px solid var(--bd);font:400 1.2rem var(--h);letter-spacing:.06em;text-transform:uppercase;display:flex;align-items:center;gap:14px}
+.hl div::before{content:"";width:22px;height:2px;background:var(--red)}
+/* gallery */
+#journey .top{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
+#journey .top p{max-width:340px;color:var(--mut)}
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:150px;gap:10px}
+.gal .ph{border-radius:0;padding:10px}
+.gal .ph:hover img{transform:scale(1.04)}
+.gal .ph img{transition:transform .6s}
+.g1{grid-column:span 3;grid-row:span 4}
+.g2{grid-column:span 3;grid-row:span 2}
+.g3{grid-column:span 1;grid-row:span 2}
+.g4{grid-column:span 2;grid-row:span 2}
+.g5{grid-column:span 2;grid-row:span 2}
+.g6{grid-column:span 2;grid-row:span 2}
+.g7{grid-column:span 2;grid-row:span 2}
+.lb{position:fixed;inset:0;background:rgba(8,8,8,.96);z-index:100;display:none;align-items:center;justify-content:center;padding:60px 20px}
+.lb.o{display:flex}
+.lb img{max-height:100%;max-width:100%;object-fit:contain}
+.lb .no{color:var(--mut);border:1px dashed #444;padding:60px 40px}
+.lb button{position:absolute;background:none;border:0;color:#fff;font-size:2.2rem;cursor:pointer;width:52px;height:52px}
+.lb .x{top:14px;right:14px}.lb .pv{left:8px;top:50%}.lb .nx{right:8px;top:50%}
+.lb button:hover{color:var(--red)}
+/* services */
+#services{background:var(--ch)}
+.sh{margin-bottom:60px;max-width:760px}
+.sh p{color:var(--mut);margin-top:18px;max-width:520px}
+.sv{display:grid;grid-template-columns:90px 1fr 1fr;gap:40px;align-items:center;padding:44px 0;border-top:1px solid var(--bd)}
+.sv:last-child{border-bottom:1px solid var(--bd)}
+.sv .n{font:400 4.2rem/1 var(--h);color:transparent;-webkit-text-stroke:1px var(--red)}
+.sv h3{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:12px}
+.sv p{color:var(--mut);max-width:420px}
+.sv .ph{aspect-ratio:16/8;transition:border-color .3s}
+.sv:hover .ph{border-color:var(--red)}
+.sv:nth-child(even) .ph{order:-1}
+.sv:nth-child(even){grid-template-columns:1fr 1fr 90px}
+.sv:nth-child(even) .n{order:3;text-align:right}
+/* why */
+.wg{display:grid;grid-template-columns:5fr 6fr;gap:80px;align-items:start}
+.wg .ph{aspect-ratio:3/4;position:sticky;top:90px}
+.wg h2{margin-bottom:40px}
+.bn{display:grid;grid-template-columns:54px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--bd)}
+.bn span{font:400 1.7rem var(--h);color:var(--red)}
+.bn h3{font:600 1.05rem var(--b);text-transform:none;margin-bottom:4px}
+.bn p{color:var(--mut);font-size:.95rem}
+/* philosophy */
+#philosophy{position:relative;padding:0;min-height:80vh;display:flex;align-items:center;overflow:hidden;background:var(--ch)}
+#philosophy .ph{position:absolute;inset:0;border:0}
+#philosophy .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,8,8,.92),rgba(8,8,8,.55));pointer-events:none}
+#philosophy .wrap{position:relative;padding-top:100px;padding-bottom:100px;pointer-events:none}
+#philosophy blockquote{font:400 clamp(2.2rem,6vw,5.2rem)/1.05 var(--h);text-transform:uppercase;max-width:950px;border-left:4px solid var(--red);padding-left:28px}
+#philosophy p{margin:26px 0 0 32px;color:var(--mut)}
+/* faq */
+#faqs{background:var(--ch)}
+.fg{display:grid;grid-template-columns:4fr 7fr;gap:80px}
+.fi{border-top:1px solid var(--bd)}
+.fi:last-child{border-bottom:1px solid var(--bd)}
+.fq{width:100%;background:none;border:0;color:#fff;font:500 1.05rem var(--b);text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;transition:color .2s}
+.fq::after{content:"+";font-size:1.5rem;line-height:1;color:var(--mut);transition:transform .3s}
+.fi.o .fq{color:var(--red)}
+.fi.o .fq::after{transform:rotate(45deg);color:var(--red)}
+.fa{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.fi.o .fa{grid-template-rows:1fr}
+.fa div{overflow:hidden}
+.fa p{color:var(--mut);padding:0 40px 24px 0}
+/* contact */
+.cg{display:grid;grid-template-columns:4fr 7fr;gap:80px}
+.cg p.mut{margin-top:18px}
+form{background:var(--card);padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:20px;border-radius:2px}
+.f{display:flex;flex-direction:column;gap:7px}.f.w{grid-column:1/-1}
+label,legend{font-size:.8rem;font-weight:500;color:var(--mut);letter-spacing:.04em}
+label i,legend i{color:var(--red);font-style:normal}
+input[type=text],input[type=email],input[type=tel],input[type=number],select,textarea{background:var(--bg);border:1px solid #555;color:#fff;padding:13px 14px;font:400 1rem var(--b);border-radius:2px;width:100%;transition:border-color .2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--red);box-shadow:0 0 0 3px rgba(227,38,54,.25)}
+.er{border-color:var(--red)!important}
+.em{color:var(--red);font-size:.78rem;min-height:0}
+textarea{min-height:110px;resize:vertical}
+fieldset{border:0;padding:0;grid-column:1/-1}
+.ck{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.ck label{display:flex;align-items:center;gap:9px;border:1px solid #555;padding:10px 14px;color:#fff;font-size:.9rem;cursor:pointer;border-radius:2px;transition:border-color .2s}
+.ck label:has(input:checked){border-color:var(--red)}
+.ck input{accent-color:var(--red);width:16px;height:16px}
+#msg{grid-column:1/-1;font-size:.92rem;padding:14px 16px;border:1px solid var(--bd);display:none}
+#msg.err{display:block;border-color:var(--red)}
+#msg.ok{display:block;border-color:#fff}
+/* footer */
+footer{padding:70px 0 30px;border-top:1px solid var(--bd)}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--bd)}
+.ft h4{font:600 .75rem var(--b);letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.ft a,.ft p{display:block;color:var(--mut);font-size:.92rem;margin-bottom:8px;transition:color .2s}
+.ft a:hover{color:#fff}
+.ft .logo{margin-bottom:6px}
+.ft .social-icon{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;color:#fff;border:1px solid var(--bd);border-radius:50%;transition:background .2s,border-color .2s}
+.ft .social-icon:hover{background:#1877F2;border-color:#1877F2;color:#fff}
+.social-icon svg{display:block;width:22px;height:22px;fill:currentColor}
+.cp{padding-top:24px;color:var(--mut);font-size:.82rem}
+/* WhatsApp contact */
+.whatsapp-float{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:60;width:58px;height:58px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.4);transition:background .2s,transform .2s}
+.whatsapp-float:hover{background:#1ebe5d;transform:translateY(-2px)}
+.whatsapp-float svg{width:32px;height:32px;fill:currentColor}
+/* reveal */
+.rv{opacity:0;transition:opacity .8s ease}.rv.in{opacity:1}
+@media(max-width:920px){
+ section{padding:80px 0}
+ .links{position:fixed;inset:68px 0 auto;background:var(--bg);flex-direction:column;align-items:stretch;gap:0;padding:10px 24px 24px;border-bottom:1px solid var(--bd);display:none}
+ .links.o{display:flex}.links a{padding:16px 0;border-bottom:1px solid var(--bd)}.links .btn{text-align:center;margin-top:16px}
+ .burger{display:block}
+ .hg{grid-template-columns:1fr;gap:28px}.hero-ph{order:1;aspect-ratio:4/5;max-height:40vh;margin:0}
+ #home{min-height:100svh;padding:104px 0 44px;align-items:flex-start}
+ #home h1{font-size:clamp(2.2rem,10vw,3rem);margin:6px 0 18px}
+ #home p{margin-bottom:24px}
+ .btns{display:grid;grid-template-columns:1fr;gap:10px;max-width:320px}
+ .btns .btn{text-align:center}
+ .scroll{display:none}
+ .ag,.wg,.fg,.cg{grid-template-columns:1fr;gap:44px}.wg .ph{position:static}
+ .sv,.sv:nth-child(even){grid-template-columns:60px 1fr;gap:20px}.sv .ph,.sv:nth-child(even) .ph{grid-column:1/-1;order:3}.sv .n,.sv:nth-child(even) .n{order:0;text-align:left;font-size:3rem}
+ .gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+ .gal .ph{grid-column:span 1!important;grid-row:span 1!important}.g1{grid-column:span 2!important;grid-row:span 2!important}
+ form{grid-template-columns:1fr;padding:24px}
+ .ft{grid-template-columns:1fr 1fr}.ft>div:first-child{grid-column:1/-1}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1}}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap nb">
+ <a href="#home" class="logo"><img src="images/SK-Fitness-Coach-Logo.png" alt="Shabeer  Khan Fitness Coach"></a>
+ <button class="burger" id="bg" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+ <div class="links" id="lk">
+  <a href="#home">Home</a><a href="#about">About</a><a href="#journey">My Journey</a><a href="#services">Services</a><a href="#faqs">FAQs</a><a href="#contact">Contact</a>
+  <a href="#contact" class="btn">Let’s Train</a>
+ </div>
+</div></nav>
+
+<header id="home"><div class="wrap hg">
+ <div>
+  <span class="lbl">Personal Fitness Coach</span>
+  <h1>Build strength.<br>Build discipline.<br><em>Build your best self.</em></h1>
+  <p>Your fitness journey starts with the right guidance. Train smarter, eat better, and become stronger with personalised fitness coaching from Shabeer Khan.</p>
+  <div class="btns"><a href="#contact" class="btn">Start your journey</a><a href="#journey" class="btn ghost">Explore my journey</a></div>
+ </div>
+ <div class="ph has hero-ph"><img src="images/icon-img-two.jpeg" alt="Shabeer  Khan at the gym"></div>
+</div><div class="scroll" aria-hidden="true"></div></header>
+
+<section id="about"><div class="wrap ag">
+ <div class="ph has rv"><img src="images/icon-img-one.jpeg" alt="Shabeer  Khan portrait"></div>
+ <div class="rv">
+  <span class="lbl">About Shabeer Khan</span>
+  <h2>More than muscles. It’s a discipline.</h2>
+  <p>Fitness is not just about building a strong physique. It’s about consistency, discipline, confidence, and becoming a better version of yourself.</p>
+  <p>I’m Shabeer Khan, and my passion for fitness drives me to help others discover their strength, develop healthier habits, and achieve their fitness goals.</p>
+  <p>Whether you’re just starting your fitness journey or looking to take your training to the next level, the right guidance can make all the difference.</p>
+  <div class="hl"><div>Strength &amp; conditioning</div><div>Personal fitness guidance</div><div>Fitness lifestyle &amp; discipline</div></div>
+ </div>
+</div></section>
+
+<section id="journey"><div class="wrap">
+ <div class="top"><div><span class="lbl">My Journey</span><h2>The work behind<br>the physique.</h2></div>
+ <p>Every rep. Every session. Every drop of effort. Progress is built through consistency.</p></div>
+ <div class="gal" id="gal">
+  <div class="ph has g1 rv"><img src="images/img3.jpeg" alt="Shabeer  Khan training at the gym"></div>
+  <div class="ph has g2 rv"><img src="images/icon-img-one.jpeg" alt="Shabeer  Khan portrait"></div>
+  <div class="ph has g3 rv"><img src="images/img1.jpeg" alt="Shabeer  Khan at the gym"></div>
+  <div class="ph has g4 rv"><img src="images/img2.jpeg" alt="Shabeer  Khan portrait"></div>
+  <div class="ph has g5 rv"><img src="images/icon-img-one.jpeg" alt="Shabeer  Khan training at the gym"></div>
+  <div class="ph has g6 rv"><img src="images/icon-img-one.jpeg" alt="Shabeer  Khan portrait"></div>
+  <div class="ph has g7 rv"><img src="images/icon-img-two.jpeg" alt="Shabeer  Khan at the gym"></div>
+ </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+ <div class="sh"><span class="lbl">Coaching Services</span><h2>Your goals. Your plan. Your progress.</h2><p>Every fitness journey is different. Get the right guidance, build better habits, and work towards your goals with a structured approach.</p></div>
+ <div class="sv rv"><div class="n">01</div><div><h3>Personal fitness coaching</h3><p>Individual fitness guidance based on personal goals, fitness levels, and training requirements.</p></div><div class="ph has"><img src="images/icon-img-two.jpeg" alt="Shabeer  Khan training at the gym"></div></div>
+ <div class="sv rv"><div class="n">02</div><div><h3>Nutrition guidance</h3><p>Practical nutrition guidance and personalised eating recommendations to support fitness goals and healthier habits.</p></div><div class="ph has"><img src="images/icon-img-one.jpeg" alt="Shabeer  Khan portrait"></div></div>
+ <div class="sv rv"><div class="n">03</div><div><h3>Beginner fitness programs</h3><p>A structured starting point for people who are new to fitness and need guidance with exercises, routines, and consistency.</p></div><div class="ph has"><img src="images/icon-img-two.jpeg" alt="Shabeer  Khan training at the gym"></div></div>
+ <div class="sv rv"><div class="n">04</div><div><h3>Strength &amp; muscle building</h3><p>Training guidance focused on improving strength, developing muscle, and building a balanced physique.</p></div><div class="ph has"><img src="images/icon-img-one.jpeg" alt="Shabeer  Khan portrait"></div></div>
+</div></section>
+
+<section id="why"><div class="wrap wg">
+ <div class="ph has rv"><img src="images/icon-img-two.jpeg" alt="Shabeer  Khan at the gym"></div>
+ <div class="rv">
+  <span class="lbl">Why Train With Shabeer ?</span>
+  <h2>The right guidance makes the difference.</h2>
+  <div class="bn"><span>01</span><div><h3>Personalised approach</h3><p>Fitness guidance based on individual goals and fitness levels.</p></div></div>
+  <div class="bn"><span>02</span><div><h3>Beginner friendly</h3><p>Helping newcomers understand fitness, exercises, and proper training routines.</p></div></div>
+  <div class="bn"><span>03</span><div><h3>Training discipline</h3><p>Building consistency and sustainable workout habits.</p></div></div>
+  <div class="bn"><span>04</span><div><h3>Nutrition awareness</h3><p>Understanding how nutrition supports training and physical progress.</p></div></div>
+  <div class="bn"><span>05</span><div><h3>Progress focused</h3><p>Working towards realistic and measurable fitness goals.</p></div></div>
+ </div>
+</div></section>
+
+<section id="philosophy">
+ <div class="ph has"><video autoplay muted loop playsinline aria-label="Shabeer Khan workout video"><source src="images/shabeer-workout-video.mp4" type="video/mp4"></video></div><div class="ov"></div>
+ <div class="wrap"><blockquote>Your body can achieve what your mind believes. It starts with one decision and continues with discipline.</blockquote><p>Stay consistent. Trust the process. Keep getting stronger.</p></div>
+</section>
+
+<section id="faqs"><div class="wrap fg">
+ <div><span class="lbl">FAQs</span><h2>Got questions? Let’s clear them.</h2></div>
+ <div id="fl"></div>
+</div></section>
+
+<section id="contact"><div class="wrap cg">
+ <div><span class="lbl">Start Your Fitness Journey</span><h2>Ready to start your transformation?</h2><p class="mut">Whether you’re starting from scratch or looking to take your fitness to the next level, take the first step today.</p></div>
+ <form id="form" novalidate>
+  <div class="f w"><label for="nm">Full name <i>*</i></label><input type="text" id="nm" name="name" autocomplete="name" required><span class="em"></span></div>
+  <div class="f"><label for="em">Email address <i>*</i></label><input type="email" id="em" name="email" autocomplete="email" required><span class="em"></span></div>
+  <div class="f"><label for="ph">Phone number <i>*</i></label><input type="tel" id="ph" name="phone" autocomplete="tel" required><span class="em"></span></div>
+  <div class="f"><label for="ag">Age (optional)</label><input type="number" id="ag" name="age" min="10" max="99"><span class="em"></span></div>
+  <div class="f"><label for="lv">Current fitness level</label><select id="lv" name="level"><option value="">Select level</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+  <div class="f w"><label for="gl">Fitness goal</label><select id="gl" name="goal"><option value="">Select goal</option><option>Muscle Building</option><option>Weight Loss</option><option>General Fitness</option><option>Strength Training</option><option>Overall Health</option><option>Other</option></select></div>
+  <fieldset><legend>Interested in</legend><div class="ck">
+   <label><input type="checkbox" name="interest" value="Personal Fitness Coaching">Personal fitness coaching</label>
+   <label><input type="checkbox" name="interest" value="Nutrition Guidance">Nutrition guidance</label>
+   <label><input type="checkbox" name="interest" value="Beginner Fitness Program">Beginner fitness program</label>
+   <label><input type="checkbox" name="interest" value="Strength & Muscle Building">Strength &amp; muscle building</label></div></fieldset>
+  <div class="f w"><label for="ms">Message</label><textarea id="ms" name="message"></textarea></div>
+  <div id="msg" role="alert"></div>
+  <div class="f w"><button class="btn" type="submit">Get started</button></div>
+ </form>
+</div></section>
+
+<footer><div class="wrap">
+ <div class="ft">
+  <div><div class="logo"><img src="images/SK-Fitness-Coach-Logo.png" alt="Shabeer  Khan Fitness Coach"></div><p>Personal Fitness Coach</p></div>
+  <div><h4>Navigate</h4><a href="#home">Home</a><a href="#about">About</a><a href="#journey">My Journey</a><a href="#services">Services</a><a href="#faqs">FAQs</a><a href="#contact">Contact</a></div>
+  <div><h4>Follow</h4> <a href="#" class="social-icon" aria-label="Instagram" data-todo><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.848 0 3.204-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.583-.012-4.848-.07-3.26-.149-4.771-1.699-4.919-4.919-.058-1.265-.07-1.645-.07-4.849 0-3.204.013-3.583.07-4.848.149-3.227 1.664-4.771 4.919-4.919 1.266-.058 1.645-.07 4.848-.07zM12 0C8.741 0 8.332.014 7.052.072 2.693.272.273 2.69.073 7.05.014 8.33 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.359 2.618 6.78 6.978 6.98C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.978.059-1.28.073-1.689.073-4.95 0-3.259-.014-3.668-.072-4.948-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"></path></svg></a></div>
+  <div><h4>Contact</h4><p>Phone: <a href="tel:+919966992122">+91 99669 92122</a></p><p>Email: [to be added]</p></div>
+ </div>
+ <div class="cp" style="display:flex;justify-content:space-between;align-items:center"><span>© <span id="current-year"></span> Shabeer Khan. All Rights Reserved.</span><span>Developed by ThinkB</span></div>
+</div></footer>
+
+<a class="whatsapp-float" href="https://wa.me/919966992122" target="_blank" rel="noopener noreferrer" aria-label="Chat with Shabeer Khan on WhatsApp">
+ <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 .6C7.5.6.6 7.5.6 16c0 2.7.7 5.3 2 7.6L.5 31.5l8.1-2.1a15.4 15.4 0 0 0 7.4 1.9h.1c8.5 0 15.4-6.9 15.4-15.4S24.6.6 16 .6zm0 28.1h-.1a12.7 12.7 0 0 1-6.5-1.8l-.5-.3-4.8 1.3 1.3-4.7-.3-.5A12.6 12.6 0 0 1 3.2 16C3.2 8.9 9 3.2 16 3.2S28.8 9 28.8 16 23.1 28.7 16 28.7zm7-9.5c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.3.4-1 1.2-1.2 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.4.6-.7.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.4-1.2 1.2-1.2 3s1.2 3.5 1.4 3.8c.2.2 2.5 3.8 6.1 5.3.8.3 1.4.5 1.9.6.8.2 1.5.2 2 .1.6-.1 2.2-.9 2.5-1.7.3-.8.3-1.5.2-1.7-.1-.2-.3-.3-.7-.5z"/></svg>
+</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="x" aria-label="Close">×</button><button class="pv" aria-label="Previous">‹</button><div id="lc"></div><button class="nx" aria-label="Next">›</button></div>
+
+<script>
+document.getElementById('current-year').textContent=new Date().getFullYear();
+// Set to your form service URL (e.g. Formspree) to enable sending.
+const FORM_ENDPOINT = "";
+
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+// Nav
+const nav=$('#nav'),bg=$('#bg'),lk=$('#lk');
+addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>40),{passive:true});
+bg.onclick=()=>{const o=lk.classList.toggle('o');bg.classList.toggle('o',o);bg.setAttribute('aria-expanded',o)};
+$$('#lk a').forEach(a=>a.onclick=()=>{lk.classList.remove('o');bg.classList.remove('o')});
+const secs=$$('header[id],section[id]'),ls=$$('#lk a:not(.btn)');
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id==='why'?'services':e.target.id==='philosophy'?'journey':e.target.id;ls.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'}).observe&&secs.forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id==='why'?'services':e.target.id==='philosophy'?'journey':e.target.id;ls.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'}).observe(s));
+
+// Reveal
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>ro.observe(el));
+
+// FAQ
+const faqs=[["Can beginners join Shabeer ’s fitness coaching?","Yes. Beginners can get guidance on starting their fitness journey, understanding basic exercises, and developing consistent workout habits."],["Do I need previous gym experience to start?","No. You can start at your current fitness level and gradually work towards your goals with appropriate guidance."],["Does Shabeer provide personalised workout plans?","Personalised training guidance can be discussed based on your goals and coaching requirements."],["Is nutrition guidance included in the coaching?","Nutrition guidance is one of the coaching services. Contact Shabeer to understand the available options."],["Can I join coaching for muscle building?","Yes. You can discuss your muscle-building goals and suitable training guidance with Shabeer ."],["Can I get guidance for weight loss and general fitness?","You can discuss your fitness goals and explore suitable training approaches."],["Is online personal coaching available?","Contact Shabeer directly to confirm online coaching availability."],["How do I get started with a fitness program?","Fill out the enquiry form below with your details and fitness goals to get in touch."],["How can I contact Shabeer for personal coaching?","Submit the contact form on this website or use the available social media contact links."]];
+$('#fl').innerHTML=faqs.map((f,i)=>`<div class="fi"><button class="fq" aria-expanded="false" aria-controls="a${i}">${f[0]}</button><div class="fa" id="a${i}" role="region"><div><p>${f[1]}</p></div></div></div>`).join('');
+$$('.fq').forEach(b=>b.onclick=()=>{const it=b.parentElement,o=!it.classList.contains('o');$$('.fi.o').forEach(x=>{x.classList.remove('o');$('.fq',x).setAttribute('aria-expanded','false')});if(o){it.classList.add('o');b.setAttribute('aria-expanded','true')}});
+
+// Lightbox
+let cur=0;const lb=$('#lb'),lc=$('#lc'),items=()=>$$('#gal .ph');
+function openLb(i){const its=items();cur=(i+its.length)%its.length;const p=its[cur],im=$('img',p);lc.innerHTML=im?`<img src="${im.src}" alt="Shabeer Khan">`:`<div class="no">${p.dataset.name}<br>No photo added yet</div>`;lb.classList.add('o')}
+items().forEach((p,i)=>p.addEventListener('click',()=>openLb(i)));
+$('.x',lb).onclick=()=>lb.classList.remove('o');
+$('.pv',lb).onclick=()=>openLb(cur-1);$('.nx',lb).onclick=()=>openLb(cur+1);
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('o')};
+addEventListener('keydown',e=>{if(!lb.classList.contains('o'))return;if(e.key==='Escape')lb.classList.remove('o');if(e.key==='ArrowLeft')openLb(cur-1);if(e.key==='ArrowRight')openLb(cur+1)});
+
+// Form
+const form=$('#form'),msg=$('#msg');
+function bad(el,t){el.classList.add('er');el.nextElementSibling.textContent=t;return false}
+form.addEventListener('submit',async e=>{
+  e.preventDefault();msg.className='';$$('.er',form).forEach(x=>{x.classList.remove('er');x.nextElementSibling.textContent=''});
+  const n=$('#nm'),m=$('#em'),p=$('#ph'),a=$('#ag');let ok=true;
+  if(!n.value.trim())ok=bad(n,'Enter your full name.');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m.value))ok=bad(m,'Enter a valid email address.');
+  if(p.value.replace(/\D/g,'').length<7)ok=bad(p,'Enter a valid phone number.');
+  if(a.value&&(a.value<10||a.value>99))ok=bad(a,'Enter an age between 10 and 99.');
+  if(!ok){msg.className='err';msg.textContent='Please fix the highlighted fields.';return}
+  if(!FORM_ENDPOINT){msg.className='err';msg.textContent='This form is not connected to an email service yet, so your enquiry was not sent. Please use the contact details in the footer once they are added.';return}
+  const d=Object.fromEntries(new FormData(form));d.interest=$$('[name=interest]:checked').map(x=>x.value).join(', ');
+  try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)});if(!r.ok)throw 0;form.reset();msg.className='ok';msg.textContent='Thank you. Your enquiry has been sent.'}
+  catch{msg.className='err';msg.textContent='Your enquiry could not be sent. Check your connection and try again.'}
+});
+$$('[data-todo]').forEach(a=>a.onclick=e=>e.preventDefault());
+</script>
+</body>
+</html>
